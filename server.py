@@ -9,7 +9,7 @@ app = Flask(__name__)
 def hello_world():
     return jsonify(
     {
-    'Developer':'RITIK RAJ',
+    Developer:"RITIK RAJ",
     'designation':'employee at Tachodril'
     }
     )
