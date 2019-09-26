@@ -5,7 +5,7 @@ import requests
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def hello_world():
     return jsonify(
     {
@@ -14,7 +14,7 @@ def hello_world():
     }
     )
 
-@app.route('/today/<sunsign>')
+@app.route('/today/<sunsign>', methods=['GET'])
 def daily(sunsign):
     my_url='http://www.ganeshaspeaks.com/horoscopes/daily-horoscope/'+sunsign
     uclient=uReq(my_url)
@@ -27,7 +27,7 @@ def daily(sunsign):
     containers=page_soup.findAll("p",{"class":"margin-top-xs-0"})
     return jsonify({'result':containers[0].text.strip()})
 
-@app.route('/weekly/<sunsign>')
+@app.route('/weekly/<sunsign>', methods=['GET'])
 def weekly(sunsign):
     my_url='http://www.ganeshaspeaks.com/horoscopes/weekly-horoscope/'+sunsign
     uclient=uReq(my_url)
@@ -41,7 +41,7 @@ def weekly(sunsign):
     return jsonify({'result':containers[0].text.strip()})
 
 
-@app.route('/monthly/<sunsign>')
+@app.route('/monthly/<sunsign>', methods=['GET'])
 def monthly(sunsign):
     my_url='http://www.ganeshaspeaks.com/horoscopes/monthly-horoscope/'+sunsign
     uclient=uReq(my_url)
@@ -55,7 +55,7 @@ def monthly(sunsign):
     return jsonify({'result':containers[0].text.strip()})
 
 
-@app.route('/ritik')
+@app.route('/ritik', methods=['GET'])
 def level():
     my_url='http://www.ganeshaspeaks.com/horoscopes/daily-horoscope/aquarius'
     uclient=uReq(my_url)
