@@ -2,8 +2,9 @@ from flask import Flask,jsonify
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 import requests
-from flask_cors import CORS, cross_origins
-app.config['CORS_HEADERS'] = 'Content-Type'
+from flask_cors import CORS
+#, cross_origins
+#app.config['CORS_HEADERS'] = 'Content-Type'
 
 app = Flask(__name__)
 
