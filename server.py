@@ -2,6 +2,8 @@ from flask import Flask,jsonify
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 import requests
+from flask_cors import CORS, cross_origins
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 app = Flask(__name__)
 
@@ -79,7 +81,7 @@ def level():
     container_for_date=page_soup.findAll("p",{"class":"orrange-text margin-bottom-0 margin-top-5 truncate-line"})
     return jsonify(result=containers[0].text.strip(),
                     date=container_for_date[0].text.strip(),
-                    sunsign=sunsign
+                    sunsign='sunsign'
                     )
 
 if __name__ == '__main__':
